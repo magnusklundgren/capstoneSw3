@@ -1,6 +1,8 @@
 package simulator;
+import java.util.Random;
 
 public class Npc {
+    Random rand = new Random();
     int def, magic, hp;
     int stabDef, slashDef, crushDef, mageDef, rangeDef;
     int size;
@@ -15,5 +17,32 @@ public class Npc {
         this.mageDef = mageDef;
         this.rangeDef = rangeDef;
         this.size = size;
+    }
+
+    public int getDefenceRoll(String style) {
+        int styleDefence = getTargetStyleDefence(style);
+        int maxDefenceRoll = (this.def + 9) * (styleDefence + 64);
+
+        int defenceRoll = rand.nextInt(maxDefenceRoll);
+
+        return defenceRoll;
+
+    }
+
+    private int getTargetStyleDefence(String style) {
+        switch (style) {
+            case "stab" -> {
+                return this.stabDef;
+            }
+            case "crush" -> {
+                return this.crushDef;
+            }
+            case "slash" -> {
+                return this.slashDef;
+            }
+            default -> {
+                return 0;
+            }
+        }
     }
 }
