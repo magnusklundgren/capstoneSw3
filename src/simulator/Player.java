@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Player {
 
-    Random rand = new Random();
+    private Random rand = new Random();
     private int attack, strength, ranged, magic;
     private int spAttack;
 

@@ -2,10 +2,10 @@ package simulator;
 import java.util.Random;
 
 public class Npc {
-    Random rand = new Random();
-    int def, magic, hp;
-    int stabDef, slashDef, crushDef, mageDef, rangeDef;
-    int size;
+    private Random rand = new Random();
+    private int def, magic, hp;
+    private int stabDef, slashDef, crushDef, mageDef, rangeDef;
+    private int size;
 
     public Npc(int def, int magic, int hp, int stabDef, int slashDef, int crushDef, int mageDef, int rangeDef, int size) {
         this.def = def;
@@ -44,5 +44,9 @@ public class Npc {
                 return 0;
             }
         }
+    }
+
+    public int getHp() {
+        return hp;
     }
 }

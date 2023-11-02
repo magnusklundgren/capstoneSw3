@@ -3,9 +3,9 @@ import java.util.Random;
 
 public class Simulator {
 
-    Random rand = new Random();
-    Player player;
-    Npc npc;
+    private Random rand = new Random();
+    private Player player;
+    private Npc npc;
 
     public Simulator(Player player, Npc npc) {
         this.player = player;
@@ -35,7 +35,7 @@ public class Simulator {
 
     public int fight() {
         int time = 0;
-        int npcHealth = npc.hp;
+        int npcHealth = npc.getHp();
         int weaponSpeed = player.getWeaponSpeed();
         int maxHit = player.maxHit();
 
