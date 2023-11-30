@@ -1,14 +1,12 @@
 package simulator;
 
 public class GearSet {
-    private int stab, slash, crush, magic, ranged, strength;
+    private int stab, slash, crush, strength;
 
-    public GearSet(int stab, int slash, int crush, int magic, int ranged, int strength) {
+    public GearSet(int stab, int slash, int crush, int strength) {
         this.stab = stab;
         this.slash = slash;
         this.crush = crush;
-        this.magic = magic;
-        this.ranged = ranged;
         this.strength = strength;
     }
 
@@ -22,12 +20,6 @@ public class GearSet {
             }
             case "crush" -> {
                 return crush;
-            }
-            case "ranged" -> {
-                return ranged;
-            }
-            case "magic" -> {
-                return magic;
             }
             default ->{
                 return 0;

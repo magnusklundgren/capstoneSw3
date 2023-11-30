@@ -1,22 +1,18 @@
 package simulator;
 
 public class Weapon {
-    private int stab, slash, crush, magic, ranged, strength;
+    private int stab, slash, crush, strength;
     private String style;
 
     private int speed;
-    private int travelTime;
 
-    public Weapon(int stab, int slash, int crush, int magic, int ranged, String style, int strength, int speed) {
+    public Weapon(int stab, int slash, int crush, String style, int strength, int speed) {
         this.stab = stab;
         this.slash = slash;
         this.crush = crush;
-        this.magic = magic;
-        this.ranged = ranged;
         this.style = style;
         this.speed = speed;
         this.strength = strength;
-        this.travelTime = 0;
     }
 
     public int getSpeed() {

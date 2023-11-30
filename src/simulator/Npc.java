@@ -4,19 +4,15 @@ import java.util.Random;
 public class Npc {
     private Random rand = new Random();
     private int def, magic, hp;
-    private int stabDef, slashDef, crushDef, mageDef, rangeDef;
-    private int size;
+    private int stabDef, slashDef, crushDef;
 
-    public Npc(int def, int magic, int hp, int stabDef, int slashDef, int crushDef, int mageDef, int rangeDef, int size) {
+    public Npc(int def, int magic, int hp, int stabDef, int slashDef, int crushDef) {
         this.def = def;
         this.magic = magic;
         this.hp = hp;
         this.stabDef = stabDef;
         this.slashDef = slashDef;
         this.crushDef = crushDef;
-        this.mageDef = mageDef;
-        this.rangeDef = rangeDef;
-        this.size = size;
     }
 
     public int getDefenceRoll(String style) {
