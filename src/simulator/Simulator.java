@@ -1,3 +1,4 @@
+//Magnus Kirkeskov Lundgren - sd48tq@student.aau.dk
 package simulator;
 
 import java.util.Random;
@@ -43,14 +44,34 @@ public class Simulator {
         int time = 0;
         int npcHealth = npc.getHp();
         int weaponSpeed = player.getWeaponSpeed();
+        boolean playerHasSpecialWeapon = player.hasSpecialAttackWeapon();
+        int specialCost = playerHasSpecialWeapon ?
+                player.getSpecialAttackWeaponCost() : 110;
+        int specialSpeed = playerHasSpecialWeapon ?
+                player.getSpecialSpeed() : 0;
+
+        //regenerate 10 specialEnergy every 50 time, counter keeps track of cycles regenerated
+        int specialRegenCounter = 0;
 
         while (npcHealth > 0) {
-            int dmg = this.doAttack();
+            if (time/50 > specialRegenCounter) {
+                player.regenSpAttack();
+                specialRegenCounter += 1;
+            }
+
+            int dmg;
+            if (playerHasSpecialWeapon && player.getSpAttack() - specialCost >=0) {
+                player.useSpecialAttack();
+                dmg = doSpecial();
+                time += specialSpeed;
+            } else {
+                dmg = this.doAttack();
+                time += weaponSpeed;
+            }
             npcHealth -= dmg;
-            time += weaponSpeed;
 
         }
-//        return time + this.player.weapon.speed;
+        player.resetSpecialAttack();
         return time;
     }
 
@@ -60,6 +81,18 @@ public class Simulator {
 
         if (attackRoll > defenceRoll) {
             return player.doHit();
+        } else {
+            return 0;
+        }
+    }
+
+
+    private int doSpecial() {
+        int attackRoll = this.player.specialAttackRoll();
+        int defenceRoll = this.npc.getDefenceRoll(this.player.getSpecialAttackWeaponStyle());
+
+        if (attackRoll > defenceRoll) {
+            return player.doSpecialHit();
         } else {
             return 0;
         }

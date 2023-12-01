@@ -1,9 +1,0 @@
-Exceptions in constructor, if we want a value to be positive for example.
-Unit tests for methods using random numbers. Seed? Test that result is between 0 and max expected?
-
-Attack roll depending on gear and weapon, but special weapons might use different calculations.
-    - How to implement with proper delegation as player currently has this responsibility.
-        -Pass gear bonus to weapon as variable and delegate attack roll method to weapon then extend to implement
-           new and different calculations?
-
-Unit test for builders just assertNotNull?

@@ -1,4 +1,7 @@
+//Magnus Kirkeskov Lundgren - sd48tq@student.aau.dk
 import simulator.*;
+
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,6 +22,14 @@ public class Main {
 
         p1.setGear(midStrength);
         sim.doSim(1000);
+
+
+        Player p2 = PlayerBuilder.buildMaxGearMace();
+        Npc n2 = NpcBuilder.buildSpider();
+
+        Simulator sim2 = new Simulator (p2, n2);
+
+        sim2.doSim(1000);
 
     }
 }
