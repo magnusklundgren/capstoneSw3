@@ -63,6 +63,7 @@ public class Simulator {
             if (playerHasSpecialWeapon && player.getSpAttack() - specialCost >=0) {
                 player.useSpecialAttack();
                 dmg = doSpecial();
+                System.out.println("Special damage: "+ dmg);
                 time += specialSpeed;
             } else {
                 dmg = this.doAttack();

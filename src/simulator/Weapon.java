@@ -2,10 +2,10 @@
 package simulator;
 
 public class Weapon {
-    private int stab, slash, crush, strength;
-    private String style;
+    protected int stab, slash, crush, strength;
+    protected String style;
 
-    private int speed;
+    protected int speed;
 
     public Weapon(int stab, int slash, int crush, String style, int strength, int speed) {
         this.stab = stab;

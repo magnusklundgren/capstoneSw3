@@ -5,6 +5,8 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
+        /*Main used to show examples of how to run the program*/
+
         Player p1 = PlayerBuilder.buildBaseStats();
         Npc n1 = NpcBuilder.buildNex();
 
@@ -31,5 +33,13 @@ public class Main {
 
         sim2.doSim(1000);
 
+        Player p3 = PlayerBuilder.buildMaxGearMace();
+        SpecialWeapon p3Special = SpecialWeaponBuilder.buildSlowHeavyWeapon();
+
+        p3.setSpecialAttackWeapon(p3Special);
+
+        Simulator sim3 = new Simulator(p3, n2);
+
+        sim3.doSim(1000);
     }
 }

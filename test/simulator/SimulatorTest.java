@@ -1,3 +1,4 @@
+//Magnus Kirkeskov Lundgren - sd48tq@student.aau.dk
 package simulator;
 
 import org.junit.Before;
